@@ -42,7 +42,7 @@
                                     <!-- Links to Resources Section -->
                                     <h4 class = "tools-h4">Related Resources:</h4>
                                     <ul>
-                                        <li><a href="https://github.com/your-repo" target="_blank">GitHub Repository</a></li>
+                                        <li><a href="https://github.com" target="_blank">GitHub Repository</a></li>
                                         <li><span class="project-dates">January 2023 - March 2023</span></li>
                                     </ul>
                                 </div>

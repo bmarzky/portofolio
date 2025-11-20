@@ -311,7 +311,7 @@ footer p {
 
 .tool-card:hover {
     background: #222;
-    box-shadow: 0 0 10px rgba(178, 178, 178, 0.65);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2); /* Shadow lebih jelas saat hover */
     transform: translateY(-3px);
 }
 
@@ -419,194 +419,100 @@ a {
 
 
 
-
-/* Styling untuk bagian Projects */
-/* Styling untuk grid project */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
-    gap: 20px; /* Jarak antar folder */
-    margin-top: 20px;
-}
-
-/* Responsif: 2 kolom untuk layar medium (tablet) */
-@media (max-width: 1024px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 kolom pada layar sedang */
-    }
-}
-
-/* Responsif: 1 kolom untuk layar kecil (ponsel) */
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr; /* 1 kolom pada layar kecil */
-    }
-}
-
-/* Folder container */
-.project-folder {
-    background-color: #222;
-    border: 1px solid #555;
+/* Contact Section */
+.contact-section {
+    background-color: #1f1f1f; /* Dark background */
+    padding: 40px;
     border-radius: 8px;
-    cursor: pointer;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: auto; /* Tidak ada batasan ukuran tetap */
-}
-
-/* Hover effect */
-.project-folder:hover {
-    background-color: #333;
-    transform: translateY(-5px);
-}
-
-/* Ikon Folder */
-.folder-icon i {
-    font-size: 30px;  /* Ukuran ikon */
-    color: #fff;  /* Warna ikon folder */
-    margin-bottom: 10px;  /* Jarak antara ikon dan judul */
-    transition: transform 0.2s ease;  /* Transisi saat ikon di-hover */
-}
-
-/* Efek saat hover ikon folder */
-.project-folder:hover .folder-icon i {
-    transform: scale(1.1);  /* Memperbesar ikon sedikit saat hover */
-}
-
-/* Folder name */
-.folder-header {
-    font-weight: bold;
-    font-family: 'Courier New', monospace;
-    color: #fff;
-    margin-bottom: 10px;
-    font-size: 16px;
-    text-transform: uppercase;  /* Menambahkan kesan profesional */
-}
-
-/* Folder content */
-.folder-content {
-    display: none;
-    margin-top: 15px;
-    color: #ccc;
-    font-size: 14px;
-    overflow: hidden;
-    transition: all 0.3s ease-out;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-/* Ketika folder dibuka, menampilkan konten */
-.project-folder.open .folder-content {
-    display: block;
-    height: auto;  /* Tidak ada batasan ukuran */
-    padding-top: 10px;
-}
-
-/* Animasi saat folder dibuka */
-@keyframes slideDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Screenshot */
-.folder-screenshot {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Dark shadow */
+    text-align: left;
+    color: #fff; /* Light text */
     width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-top: 10px;
 }
 
-/* Tools Section */
-.tools {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.tools-h4 {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #ddd;
-    margin-bottom: 10px;
-    font-family: "Courier New", monospace;
-    letter-spacing: 1px;
-}
-
-.tool-icon {
-    background-color: #333;
+/* Title */
+.contact-section h2 {
+    font-size: 2.5rem; /* Larger title */
     color: #fff;
-    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.contact-section h3 {
+    font-size: 1.4rem; /* Larger subtitle */
+    color: #bbb;
+    margin-bottom: 30px;
+}
+
+/* Contact Info */
+.contact-info {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for larger screens */
+    gap: 20px; /* Space between items */
+    max-width: 100%; /* Ensure it's within the container width */
+}
+
+/* Contact Item */
+.contact-item {
+    background-color: #333; /* Dark background for each item */
     border-radius: 8px;
+    padding: 15px 20px; /* Reduce padding to prevent overflow */
     display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    width: 120px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    align-items: center; /* Vertically center icon and text */
+    justify-content: flex-start; /* Align icon and text to the left */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.tool-icon i {
-    font-size: 10px;
+/* Icon styling */
+.contact-item i {
+    font-size: 1.8rem; /* Adjust icon size */
+    color: #fff; /* White icon color */
+    margin-right: 15px; /* Space between icon and text */
 }
 
-.tool-icon:hover {
-    background-color: #444;
-    transform: translateY(-3px);
+/* Text styling inside each contact item */
+.contact-item p {
+    font-size: 1.1rem; /* Larger text */
+    color: #bbb; /* Light text */
+    margin: 0;
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
-/* Links Section */
-.folder-content ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 15px;
-}
-
-.folder-content ul li {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.folder-content ul li a {
-    color: #00ff00;
+/* Link styling */
+.contact-item a {
+    color: #1e90ff; /* Blue color for links */
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-weight: bold;
 }
 
-.folder-content ul li a:hover {
-    color: #fff;
+.contact-item a:hover {
+    text-decoration: underline;
 }
 
-/* Responsif */
+/* Hover Effect */
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
+}
+
+/* Media Query for smaller devices */
 @media (max-width: 768px) {
-    .tools {
-        flex-direction: column;
-        align-items: flex-start;
+    .contact-info {
+        grid-template-columns: 1fr; /* 1 column for smaller screens */
     }
 
-    .tool-icon {
-        width: auto;
-        font-size: 8px;
+    .contact-item {
+        width: 100%; /* Full width for each item on mobile */
+        max-width: 400px; /* Adjust max width for better mobile display */
     }
 }
 
-.project-dates {
-    color: #bbb;  /* Warna teks abu-abu */
-    font-size: 14px;  /* Ukuran font */
-    margin-top: 10px;  /* Jarak sedikit di atas */
-    display: block;
+@media (max-width: 480px) {
+    .contact-section h2 {
+        font-size: 2rem;
+    }
+
+    .contact-section h3 {
+        font-size: 1.2rem;
+    }
 }
