@@ -316,8 +316,6 @@
 
         .stat-item {
             font-family: 'Courier New', Courier, monospace; /* Font monospace untuk kesan terminal */
-            color: #00ff00; /* Warna hijau cyber */
-            font-size: 18px;
             text-align: center;
         }
 
@@ -325,7 +323,7 @@
             font-family: 'Courier New', monospace;  
             font-size: 25px; /* Ukuran besar untuk angka */
             font-weight: bold;
-            color: #00ff00;
+            color: #dddd;
             position: relative;
             display: inline-block;
             min-width: 40px;     /* agar tidak melebar saat scramble */
@@ -335,9 +333,10 @@
 
         .stat-label {
             font-size: 14px; /* Ukuran kecil untuk label */
-            color: #bbb; /* Warna abu-abu untuk label */
+            color: #bbbb; /* Warna abu-abu untuk label */
+            font-weight: bold;
             display: block;
-            margin-top: 5px;
+            margin-top: 3px;
         }
 
         /* Efek glitch */
@@ -360,7 +359,7 @@
     }
 
     .tools-section h6 {
-        color: #bfbfbf;         /* warna cyber hijau */
+        color: #dddd;         
         font-family: 'Courier New', monospace;
         font-size: 20px;
         text-align: left;
@@ -400,12 +399,13 @@
     justify-content: center;
     padding: 9px 14px;
     border-radius: 8px;
-    background: #0a0a0a;
-    border: 1px solid #1c1c1c;
-    color: #fff;
+    background-color: rgba(10, 10, 10, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #dddd;
     white-space: nowrap;
     font-family: "Courier New", monospace;
     font-size: 14px;
+    font-weight: bold;
     transition: transform .18s ease, background .18s ease;
     }
 
