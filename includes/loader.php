@@ -10,16 +10,27 @@
     z-index: 999999;
     overflow: hidden;
     transition: opacity 1s ease;
+    pointer-events: none; /* default: tidak menyerap klik */
 }
-#globalLoader.show { opacity: 1; display: block; }
-#globalLoader.hide { opacity: 0; }
+
+#globalLoader.show {
+    opacity: 1;
+    display: block;
+    pointer-events: auto; /* aktifkan klik saat loader muncul */
+}
+
+#globalLoader.hide {
+    opacity: 0;
+    pointer-events: none; /* biar klik bisa diteruskan */
+}
+
 
 .loader-box {
     position: absolute;
     width: 380px;
     padding: 18px;
-    background: #0a0a0a;
-    border: 1px solid #1c1c1c;
+    background-color: rgba(10, 10, 10, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: #bbb;
     font-family: "Courier New", monospace;
     /* box-shadow: 0 0 18px rgba(0, 255, 0, 0.8); */
