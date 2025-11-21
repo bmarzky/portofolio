@@ -1,22 +1,25 @@
 <!-- home.php -->
 <section id="home">
-    <h1><span id="dynamic-text"></span></h1>
 
+        <div class="bash">
+            <div class="bash-header">
+                <span id="dynamic-text"></span>
+            </div>
+            <div class="bash-body">
+                <span class="user-name">bmarz@MJ</span> <span class="shell">MINGW64</span> <span class="current-directory">~</span>
+                $ Let's Collaborate!
+                > ^C
 
-    <div class="cmd-section">
-        <div class="cmd-header">
-            Microsoft Windows [Version 10.0.26100.7171]<br>
-            (c) Microsoft Corporation. All rights reserved.<br>
+                <span class="user-name">bmarz@MJ</span> <span class="shell">MINGW64</span> <span class="current-directory">~</span>
+                $  I am exploring cybersecurity and learning how to help individuals and organizations protect their systems, networks, and data. Through my college projects, I practice basic ethical hacking, security analysis, and strategies to keep digital environments safe.
+                bash: I: command not found
+
+                <span class="user-name">bmarz@MJ</span> <span class="shell">MINGW64</span> <span class="current-directory">~</span>
+                $ exit
+                exit
+            </div>
         </div>
-        <div class="cmd-body">
-        C:\Users\bmarz> I am interested in cybersecurity. My curiosity about how systems and networks work led me to this field, and I want to learn how to protect data from threats. I believe cybersecurity is important in today's digital world, and I hope to keep improving my skills and contributing.
-        'I' is not recognized as an internal or external command,
-        operable program or batch file.<br>
-        C:\Users\bmarz> exit
-        </div>
-    </div>    
-
-
+ 
 
     <div class="cyber-stats">
         <div class="stat-item">
@@ -35,88 +38,47 @@
 
 
 
+<div class="tools-section">
+  <h3>Tools That I Have Used</h3>
 
-    <div class="tools-section">
-        <h3>Tools That I Have Used</h3>
-
-        <div class="tools-slider">
-            <div class="slider-track">
-                <div class="tools-container">
-                    <div class="tool-card">Wireshark</div>
-                    <div class="tool-card">Metasploit</div>
-                    <div class="tool-card">Burp Suite</div>
-                    <div class="tool-card">Nmap</div>
-                    <div class="tool-card">OWASP ZAP</div>
-                    <div class="tool-card">John the Ripper</div>
-                    <div class="tool-card">Aircrack-ng</div>
-                    <div class="tool-card">Hydra</div>
-                    <div class="tool-card">Snort</div>
-                    <div class="tool-card">Hashcat</div>
-                    <div class="tool-card">Kali Linux Tools</div>
-                    <div class="tool-card">Suricata</div>
-                    <div class="tool-card">Tcpdump</div>
-                    <div class="tool-card">Nessus</div>
-                    <div class="tool-card">OpenVAS</div>
-                    <div class="tool-card">Maltego</div>
-                    <div class="tool-card">Autopsy</div>
-                    <div class="tool-card">Volatility</div>
-                    <div class="tool-card">Ghidra</div>
-                    <div class="tool-card">Sqlmap</div>
-                    <div class="tool-card">Recon-ng</div>
-                    <div class="tool-card">Netcat</div>
-                    <div class="tool-card">Fiddler</div>
-                    <div class="tool-card">Cuckoo Sandbox</div>
-                    <div class="tool-card">Social-Engineer Toolkit (SET)</div>
-                </div>
-            </div>
-        </div>
+  <!-- BARIS 1 (FAST LEFT) -->
+  <div class="tools-slider" data-speed="120" data-direction="left">
+    <div class="tools-container">
+      <div class="tool-card"><img src="assets/images/icons/wireshark.png">Wireshark</div>
+      <div class="tool-card"><img src="assets/images/icons/metasploit.png">Metasploit</div>
+      <div class="tool-card"><img src="assets/images/icons/burpsuite.jpg">Burp Suite</div>
+      <div class="tool-card"><img src="assets/images/icons/nmap.png">Nmap</div>
+      <div class="tool-card"><img src="assets/images/icons/owaspzap.png">OWASP ZAP</div>
+      <div class="tool-card"><img src="assets/images/icons/hashcat.svg">Hashcat</div>
     </div>
+  </div>
 
-
-
-    <div class="cmd-section">
-        <div class="cmd-header">
-            Microsoft Windows [Version 10.0.26100.7171]<br>
-            (c) Microsoft Corporation. All rights reserved.<br>
-        </div>
-        <div class="cmd-body">
-            C:\Users\bmarz> I am exploring cybersecurity and learning how to help individuals and organizations protect their systems, networks, and data. Through my college projects, I practice basic ethical hacking, security analysis, and strategies to keep digital environments safe.
-            'I' is not recognized as an internal or external command,
-operable program or batch file.<br>
-            C:\Users\bmarz>
-            C:\Users\bmarz>
-            C:\Users\bmarz>
-            C:\Users\bmarz>
-            C:\Users\bmarz> exit
-        </div>
+  <!-- BARIS 2 (MIDDLE RIGHT) -->
+  <div class="tools-slider" data-speed="100" data-direction="right">
+    <div class="tools-container">
+      <div class="tool-card"><img src="assets/images/icons/nessus.png">Nessus</div>
+      <div class="tool-card"><img src="assets/images/icons/sqlmap.png">Sqlmap</div>
+      <div class="tool-card"><img src="assets/images/icons/hydra.svg">Hydra</div>
+      <div class="tool-card"><img src="assets/images/icons/Ghidra_Logo.png">Ghidra</div>
+      <div class="tool-card"><img src="assets/images/icons/autopsy.png">Autopsy</div>
     </div>
+  </div>
+
+  <!-- BARIS 3 (VERY FAST LEFT) -->
+  <div class="tools-slider" data-speed="140" data-direction="left">
+    <div class="tools-container">
+      <div class="tool-card"><img src="assets/images/icons/aircrack-ng.jpg">Aircrack-ng</div>
+      <div class="tool-card"><img src="assets/images/icons/snort.png">Snort</div>
+      <div class="tool-card"><img src="assets/images/icons/openvas.png">OpenVAS</div>
+      <div class="tool-card"><img src="assets/images/icons/maltego.png">Maltego</div>
+      <div class="tool-card"><img src="assets/images/icons/volatility.png">Volatility</div>
+    </div>
+  </div>
+</div>
 
 
 
-        <div class="bash">
-            <div class="bash-header">
-                GNU bash, version 5.1.8(1)-release (x86_64-pc-msys)<br>
-            </div>
-            <div class="bash-body">
-                C:\Users\bmarz>sh <br>
-                <span class="user-name">bmarz@MJ</span> <span class="shell">MINGW64</span> <span class="current-directory">~</span>
-                $ Let's Collaborate!
-                > ^C
 
-                <span class="user-name">bmarz@MJ</span> <span class="shell">MINGW64</span> <span class="current-directory">~</span>
-                $ I am open to opportunities where I can gain experience, work on projects, and improve my understanding of protecting systems, networks, and data.
-                bash: I: command not found.
-
-                <span class="user-name">bmarz@MJ</span> <span class="shell">MINGW64</span> <span class="current-directory">~</span>
-                $ <span class="bash-command"><a href="mailto:email@example.com" class="command-link">contact me</a></span>
-                bash: contact: you have to click contact me to collaborate
-
-                <span class="user-name">bmarz@MJ</span> <span class="shell">MINGW64</span> <span class="current-directory">~</span>
-                $ exit
-                exit<br>
-                C:\Users\bmarz>
-            </div>
-        </div>
 
 
 

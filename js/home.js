@@ -74,3 +74,79 @@ function toggleFolder(folder) {
         content.style.maxHeight = content.scrollHeight + "px"; // Open it
     }
 }
+
+
+//moving tools
+(function(){
+  // Utility: waitForLoad then init
+  window.addEventListener('load', () => {
+    initAllSliders();
+  });
+
+  function initAllSliders(){
+    document.querySelectorAll('.tools-slider').forEach(setupSlider);
+  }
+
+  function setupSlider(slider){
+    const container = slider.querySelector('.tools-container');
+    if(!container) return;
+
+    // create track wrapper and move original container inside it
+    const track = document.createElement('div');
+    track.className = 'slider-track';
+    slider.insertBefore(track, container);
+    track.appendChild(container);
+
+    // measure base width (after layout)
+    const baseWidth = container.getBoundingClientRect().width;
+
+    // clone until track scrollWidth >= baseWidth * 3 (safety)
+    // ensures for both left/right directions the transition won't show empty gap
+    let safety = 0;
+    while (track.scrollWidth < baseWidth * 3 && safety < 30) {
+      const c = container.cloneNode(true);
+      track.appendChild(c);
+      safety++;
+    }
+
+    // read config from data- attributes (pixels per second)
+    const speedPxPerSec = Number(slider.dataset.speed) || 120; // px/s
+    const direction = (slider.dataset.direction === 'right') ? 'right' : 'left';
+
+    // initial pos: left -> 0, right -> -baseWidth (so clones cover left side)
+    let pos = (direction === 'left') ? 0 : -baseWidth;
+    let lastTime = null;
+    let running = true;
+
+    // pause when hovering slider area
+    slider.addEventListener('mouseenter', () => { running = false; });
+    slider.addEventListener('mouseleave', () => { running = true; });
+
+    function step(timestamp){
+      if (!lastTime) lastTime = timestamp;
+      const dt = (timestamp - lastTime) / 1000;
+      lastTime = timestamp;
+
+      if (running) {
+        const delta = speedPxPerSec * dt * (direction === 'left' ? -1 : 1);
+        pos += delta;
+
+        // reset logic using baseWidth
+        if (direction === 'left') {
+          // as pos goes negative, when it passed -baseWidth add baseWidth (wrap)
+          if (pos <= -baseWidth) pos += baseWidth;
+        } else {
+          // moving right: pos increases from -baseWidth towards 0; when >= 0 subtract baseWidth
+          if (pos >= 0) pos -= baseWidth;
+        }
+
+        track.style.transform = `translateX(${pos}px)`;
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+
+})();

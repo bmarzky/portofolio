@@ -7,11 +7,12 @@
 
 body {
     font-family: 'Courier New', Courier, monospace; /* Font terminal */
-    background-color: #1a1a1a; /* Latar belakang hitam */
+    background-color: #000 !important; /* Latar belakang hitam */
     color: #fff; /* Teks putih */
     display: flex;
     flex-direction: column;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -26,11 +27,35 @@ body::-webkit-scrollbar {
 
 
 
+/* Konten utama */
+.main-content {
+    /* margin-left: 260px; */
+    padding: 20px;
+    padding-left: 260px;
+    box-sizing: border-box;
+    background-color: #000 !important; /* Warna latar belakang gelap untuk konten */
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    flex: 1;
+}
+
+section {
+    margin-bottom: 40px;
+    background-color: transparent;
+}
+
+h1, h2, h3 {
+    color: #fff; /* Teks judul putih */
+    font-weight: bold;
+}
+
+
+
 
 /* Navbar */
 .navbar {
     width: 250px;
-    background-color: #111; /* Warna navbar hitam */
+    background-color: #0b0b0b; /* Warna navbar hitam */
     color: #fff;
     height: 100%;
     position: fixed;
@@ -103,34 +128,10 @@ body::-webkit-scrollbar {
 
 
 
-
-
-
-/* Konten utama */
-.main-content {
-    margin-left: 260px;
-    padding: 20px;
-    background-color: #222; /* Warna latar belakang gelap untuk konten */
-    color: #fff;
-    font-family: 'Courier New', Courier, monospace;
-    flex: 1;
-}
-
-section {
-    margin-bottom: 40px;
-}
-
-h1, h2, h3 {
-    color: #fff; /* Teks judul putih */
-    font-weight: bold;
-}
-
-
-
 /* Footer */
 footer {
-    background-color: #111; /* Footer hitam */
-    color: #bbb; /* Teks footer abu-abu */
+    background-color: #0b0b0b; /* Footer hitam */
+    color: #aaa; /* Teks footer abu-abu */
     text-align: center;
     padding: 10px 0;
     position: relative;
@@ -153,6 +154,7 @@ footer p {
     }
     .main-content {
         margin-left: 0;
+        background-color: transparent;
     }
 }
 
@@ -187,28 +189,18 @@ footer p {
     margin-top: 20px;
 }
 
-.tools ul {
-    list-style: none;
-    padding-left: 20px;
-}
-
-.tools ul li {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #bbb; /* Warna abu-abu untuk teks list */
-}
-
-
 
 /* CSS untuk efek mengetik */
 #dynamic-text {
     display: inline-block;
+    color: #bbb; 
+    font-size: 1rem; /* ukuran lebih kecil seperti bash */
+    font-family: 'Fira Mono', 'Courier Prime', 'Courier', monospace; /* font monospace */
     white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid white; /* Efek cursor berkedip */
-    width: auto; /* Lebar otomatis mengikuti panjang teks */
+    border-right: 2px solid #bbb; /* efek cursor berkedip */
+    width: auto; /* lebar otomatis mengikuti teks */
     animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
-    font-family: 'courier new';
 }
     
 
@@ -264,86 +256,123 @@ footer p {
 
 
 
+/* Slider utama */
+.tools-section { padding: 8px 0; }
 
-
-
-
-
-/* Styling untuk bagian Tools */
-.tools {
-    margin-top: 30px;
+.tools-slider {
+    width: 100%;
+    overflow: hidden;        /* WAJIB */
+    position: relative;
+    margin: 5px 0;
+    padding: 5px 0;         /* ⬅️ bikin ruang supaya tidak terpotong */
+    box-sizing: border-box;
 }
 
-.tools h3 {
-    font-size: 20px;
-    color: #fff;
-    margin-bottom: 20px; /* 🔹 Tambahkan jarak antar judul dan isinya */
-    font-family: "Courier New", monospace;
-    letter-spacing: 1px;
+/* wrapper yang akan di-translate oleh JS */
+.slider-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
 }
 
+/* the original container (moved into slider-track by JS) */
 .tools-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px; /* Jarak antar kotak tool */
-    margin-top: 20px; /* Jarak tambahan antara judul dan tools */
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 14px;              /* gap antar item */
+  padding-right: 14px;   /* default padding-right untuk jarak loop - OK to adjust */
+  box-sizing: border-box;
 }
 
 .tool-card {
-    border: 1px solid #555;
-    color: #fff;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-family: "Courier New", monospace;
-    background: #111;
-    transition: all 0.3s ease;
-    cursor: default;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border-radius: 8px;
+  background: #1c1c1c;
+  border: 1px solid #333;
+  color: #fff;
+  white-space: nowrap;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  transition: transform .18s ease, background .18s ease;
 }
 
 .tool-card:hover {
-    background: #222;
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2); /* Shadow lebih jelas saat hover */
-    transform: translateY(-3px);
+  transform: translateY(-3px);
+  background: #222;
+  box-shadow: 0 10px 20px rgba(255,255,255,0.07);
+}
+
+.tool-card img {
+    width: 20px;            /* sedikit lebih kecil biar proporsional */
+    height: 20px;
+    object-fit: contain;
+    display: block;         /* hindari extra-space dari inline img */
+    padding-right: 5px;
+    padding-left: 1px;
+}
+
+.tools-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.tools-slider::before,
+.tools-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 230px; /* Lebih panjang → lebih smooth */
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+
+.tools-slider::before {
+    left: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.85) 20%,
+        rgba(0, 0, 0, 0.55) 50%,
+        rgba(0, 0, 0, 0.25) 75%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+
+
+.tools-slider::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.85) 20%,
+    rgba(0, 0, 0, 0.55) 50%,
+    rgba(0, 0, 0, 0.25) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 
 
 
-
-/* Styling untuk bagian Command Line */
-.cmd-section {
-    background-color: #000; /* Hitam */
-    font-family: "Courier New", monospace;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 40px;
-    box-shadow: none; /* Menghapus efek bayangan */
-    border: none; /* Menghapus border */
-}
-
-.cmd-header {
-    color: #bbb; /* Hijau agar konsisten */
-    margin-bottom: 0,5px; /* Mengurangi jarak agar lebih rapat */
-    font-size: 15px;
-    line-height: 1.5;
-}
-
-.cmd-body {
-    font-size: 16px;
-    line-height: 1.6;
-    white-space: pre-line;
-    color: #bbb; /* Warna teks putih untuk isi command line */
-}
 
 
 /* Styling untuk bagian Bash Terminal */
 .bash {
-    background-color: #000; /* Hitam untuk kesan terminal */
+    background-color: #0a0a0a; /* Hitam untuk kesan terminal */
     color: #fff; /* Teks putih untuk kontras yang baik */
     font-family: "Courier New", monospace; /* Font terminal */
     border-radius: 8px;
     padding: 20px;
-    margin-top: 40px;
+    margin-top: 10px;
     box-shadow: none; /* Menghapus bayangan */
     text-align: left; /* Rata kiri untuk terminal */
     line-height: 1.6;
@@ -369,10 +398,9 @@ footer p {
 
 .bash-body {
     font-size: 16px;
-    color: #bbb; /* Teks abu-abu untuk error */
+    color: #bfbfbf; /* Teks abu-abu untuk error */
     white-space: pre-line; /* Menjaga format seperti terminal */
     letter-spacing: 0.5px; /* Menambah jarak antar karakter untuk kesan terminal */
-    margin-top: 1px; /* Menambah jarak sedikit antara header dan body */
     margin-bottom: 5px; /* Mengurangi jarak bawah */
 }
 
@@ -420,8 +448,8 @@ a {
 
 /* Project Folder Styling */
 .project-folder {
-    background-color: #222; /* Dark background */
-    border: 1px solid #444; /* Lighter border */
+    background-color: #1c1c1c; /* Dark background */
+    border: 1px solid #333; /* Lighter border */
     border-radius: 8px;
     padding: 20px;
     cursor: pointer;
@@ -434,7 +462,7 @@ a {
 
 /* Hover effect */
 .project-folder:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(255,255,255,0.06);
     transform: translateY(-5px);
 }
 
@@ -579,10 +607,10 @@ ul li a:hover {
 
 /* Contact Section */
 .contact-section {
-    background-color: #1f1f1f; /* Dark background */
+    background-color: #151515; /* Dark background */
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Dark shadow */
+    box-shadow: 0 0 15px rgba(255,255,255,0.05); /* Dark shadow */
     text-align: left;
     color: #fff; /* Light text */
     width: 100%;
@@ -682,3 +710,50 @@ ul li a:hover {
         font-size: 1.2rem;
     }
 }
+
+
+
+
+
+/* Pastikan container menumpuk ke bawah */
+.main-content, 
+.about-section > .container {
+    display: block; /* teks menumpuk vertikal */
+    width: 100%;
+    max-width: 100vw; /* jangan melebihi lebar layar */
+    box-sizing: border-box; /* padding tidak menambah lebar */
+}
+
+/* About section */
+.about-section {
+    display: block; /* pastikan block */
+    background-color: #1e1e1e; /* monokrom gelap */
+    color: #e0e0e0; /* teks terang agar terbaca */
+    padding: 60px 20px;
+    margin: 0 auto;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100vw; /* jangan melebihi layar */
+    box-sizing: border-box;
+    overflow: hidden; /* hindari scroll horizontal */
+}
+
+/* Paragraf */
+.about-section p {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    word-wrap: break-word; /* pecah kata panjang */
+    white-space: normal; /* teks wrap */
+}
+
+/* Heading */
+.about-section h2 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #00ff99; /* bisa diganti sesuai tema */
+}
+
