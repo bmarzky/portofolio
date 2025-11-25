@@ -1,4 +1,4 @@
-# Personal Web Playground
+# 🌐 Personal Web Playground
 
 A personal web playground for experimenting with hosting, responsive design, and web development projects. This repository serves as a platform to learn, test, and showcase my web projects.
 
