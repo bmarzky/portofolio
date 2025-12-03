@@ -1,4 +1,4 @@
-<!-- TSop bar -->
+<!-- Top bar -->
 <div class="topbar-mobile">
     <div class="mini-profile">
         <img src="assets/images/profile.jpg" alt="">
