@@ -11,19 +11,6 @@
     box-sizing: border-box;
 }
 
-.contact-section h2 {
-    font-size: 25px;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-
-.contact-section h3 {
-    font-size: 15px;
-    color: #b3b3b3;
-    margin-bottom: 30px;
-    font-weight: 400;
-}
-
 /* Password Input */
 .contact-pass-box {
     margin-bottom: 20px;
@@ -33,7 +20,6 @@
     width: 100%;
     max-width: 580px; 
 }
-
 
 .contact-pass-box input {
     flex: 2;
@@ -130,7 +116,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 
 /* Info Icon kecil */
@@ -178,111 +164,100 @@
 .contact-title-row h2 {
     margin: 0 !important;
     padding: 0;
-    line-height: 1; /* bikin tinggi teks konsisten */
+    line-height: 1;
     display: flex;
     align-items: center;
 }
 
-
-/* Background gelap ketika info-icon diklik */
-#hunter-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(4px);
-    display: none;
-    z-index: 9990;
+/* Menambahkan margin bawah pada semua elemen h3 di dalam .contact-section */
+.contact-section h5 {
+    margin-bottom: 20px;
+    font-weight: normal;
+    color: #dddd;
 }
 
-/* Terminal box */
-#hunter-terminal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
-    width: 40%;
-    max-width: 400px;
-    background: #000;
-    border: 2px solid #222;
-    padding: 25px;
-    box-shadow: 0 0 25px rgba(255,255,255,0.05);
-    border-radius: 10px;
-    display: none;
-    z-index: 9999;
-    font-family: "Courier New", monospace;
-    color: #0f0;
-    animation: terminalPop 0.25s ease-out;
-}
-
-/* Isi terminal */
-#hunter-terminal pre {
-    margin: 0;
-    padding: 0;
-    white-space: pre-line;
-}
-
-/* Hanya header yang di-center */
-#hunter-terminal .terminal-header {
-    display: block;
-    text-align: center;
-    font-weight: bold;
-}
-
-
-/* Animasi pop-up */
-@keyframes terminalPop {
-    from { transform: translate(-50%, -50%) scale(0.7); opacity: 0; }
-    to   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-}
-
-
-/* Tablet */
+/* Responsif untuk Tablet dan Mobile */
 @media (max-width: 768px) {
+    /* Mengurangi padding untuk tablet */
     .contact-section {
-        padding: 20px;
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+        padding: 25px;
     }
-    .contact-info {
-        grid-template-columns: 1fr;
-    }
-    .contact-item {
-        padding: 16px;
-    }
-    .contact-section h2 {
-        font-size: 2rem;
-    }
-    .contact-section h3 {
-        font-size: 1.1rem;
-    }
-}
 
-/* Mobile */
-@media (max-width: 480px) {
-    .contact-section {
+    .contact-pass-box {
         max-width: 100%;
-        padding: 16px;
+        flex-direction: column; /* Menumpuk input dan button */
+        gap: 12px;
     }
-    .contact-info {
-        gap: 10px;
-    }
-    .contact-item {
-        padding: 14px;
-        gap: 10px;
-    }
-    .contact-item i {
-        font-size: 1.5rem;
-        min-width: 28px;
-    }
-    .contact-text strong {
+
+    .contact-pass-box input,
+    .contact-pass-btn {
+        width: 100%;
         font-size: 1rem;
     }
-    .contact-text a {
-        font-size: 0.9rem;
-        word-break: break-word;
+
+    .contact-info {
+        grid-template-columns: 1fr; /* Hanya satu kolom untuk tablet */
+        gap: 12px;
+    }
+
+    .contact-item {
+        padding: 16px;
+    }
+
+    /* Mengatur ukuran ikon info untuk tablet */
+    .info-icon {
+        font-size: 12px;
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Mengurangi ukuran teks untuk h3 */
+    .contact-section h3 {
+        font-size: 14px;
+    }
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 480px) {
+    /* Mengurangi padding lebih banyak untuk mobile */
+    .contact-section {
+        padding: 20px;
+    }
+
+    .contact-pass-box {
+        flex-direction: column; /* Menumpuk input dan button */
+        gap: 8px;
+    }
+
+    .contact-pass-box input,
+    .contact-pass-btn {
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr; /* Hanya satu kolom untuk mobile */
+        gap: 10px;
+    }
+
+    .contact-item {
+        padding: 12px;
+    }
+
+    /* Mengatur ukuran ikon info untuk mobile */
+    .info-icon {
+        font-size: 14px;
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Mengurangi ukuran teks untuk h3 */
+    .contact-section h3 {
+        font-size: 12px;
+    }
+
+    /* Menyesuaikan ukuran judul */
+    .contact-section h2 {
+        font-size: 22px;
     }
 }

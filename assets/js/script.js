@@ -338,15 +338,3 @@ async function checkPass() {
         contactDiv.classList.remove("show");
     }
 }
-
-//icon-info
-document.querySelector(".info-icon").addEventListener("click", function() {
-    document.getElementById("hunter-overlay").style.display = "block";
-    document.getElementById("hunter-terminal").style.display = "block";
-});
-
-// Tutup terminal jika overlay diklik
-document.getElementById("hunter-overlay").addEventListener("click", function() {
-    document.getElementById("hunter-overlay").style.display = "none";
-    document.getElementById("hunter-terminal").style.display = "none";
-});
