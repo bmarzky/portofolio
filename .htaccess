@@ -1,35 +1,47 @@
 RewriteEngine On
 RewriteBase /portofolio3/
 
-# Approve folder static
+# -----------------------------------------
+# IZINKAN FOLDER STATIC (jangan disentuh)
+# -----------------------------------------
 RewriteRule ^(assets|css|js|images|vendor|api)/ - [L]
 
+# -----------------------------------------
+# CLEAN URL UNTUK TRACE (phase1, phase2, dst)
+# -----------------------------------------
+# Gate (khusus file gate.php)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^trace/([^/]+)/gate/?$ trace/$1/gate.php [L,QSA]
 
+# Clean URL umum: trace/<folder>/<file>
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^trace/([^/]+)/([^/]+)/?$ trace/$1/$2.php [L,QSA]
 
-# URL
-# /about  → index.php?page=about
+# -----------------------------------------
+# IZINKAN SEMUA PHP DI DALAM trace/
+# (phase1, phase2, phaseX)
+# -----------------------------------------
+RewriteRule ^trace/.+\.php$ - [L]
+
+# -----------------------------------------
+# CLEAN URL HALAMAN UTAMA (home/about/projects)
+# -----------------------------------------
+RewriteCond %{REQUEST_URI} !^/portofolio3/trace/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^/]+)/?$ index.php?page=$1 [L,QSA]
 
-
-# SECURITY
-# Izinkan hanya page yang boleh diakses langsung
+# -----------------------------------------
+# IZINKAN FILE PHP ROOT YANG PERLU
+# -----------------------------------------
 RewriteRule ^(home|about|projects|contact|404)\.php$ - [L]
-
-# Izinkan index.php
 RewriteRule ^index\.php$ - [L]
 
-# Blokir semua file PHP lain
+# -----------------------------------------
+# BLOKIR PHP DI LUAR FOLDER trace/
+# -----------------------------------------
 RewriteRule ^.*\.php$ - [F]
 
-
-# Matikan directory listing
 Options -Indexes
-
-
-# PDF inline
-<FilesMatch "\.pdf$">
-    ForceType application/pdf
-    Header set Content-Disposition "inline"
-</FilesMatch>

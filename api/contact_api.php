@@ -1,7 +1,7 @@
 <?php
 header("Content-Type: application/json");
 
-$correct = "bima";
+$correct = "contactPassword123";
 
 $mode = $_POST["mode"] ?? "";
 $key  = $_POST["key"] ?? "";

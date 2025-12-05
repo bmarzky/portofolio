@@ -31,7 +31,7 @@
     gap: 8px;
     align-items: center;
     width: 100%;
-    max-width: 450px; 
+    max-width: 580px; 
 }
 
 
@@ -47,7 +47,7 @@
 
 .contact-pass-btn {
     flex: 1;
-    padding: 8px 12px;
+    padding: 8px 5px;
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 6px;
@@ -55,6 +55,11 @@
     color: #fff;
     font-size: 0.95rem;
     transition: 0.2s;
+}
+
+.contact-pass-box input,
+.contact-pass-btn {
+    font-family: inherit;
 }
 
 .contact-pass-btn:hover {
@@ -119,6 +124,120 @@
 .contact-text a:hover {
     color: #fff;
 }
+
+/* Title Row (Contact Me + i) */
+.contact-title-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 5px;
+}
+
+/* Info Icon kecil */
+.info-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: 0.2s ease;
+    position: relative;
+}
+
+/* Hover effect */
+.info-icon:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* Tooltip */
+.info-icon:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    padding: 4px 8px;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    font-size: 11px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(4px);
+    z-index: 20;
+}
+
+/* FIX AGAR H2 + ICON BENAR-BENAR SEJAJAR */
+.contact-title-row h2 {
+    margin: 0 !important;
+    padding: 0;
+    line-height: 1; /* bikin tinggi teks konsisten */
+    display: flex;
+    align-items: center;
+}
+
+
+/* Background gelap ketika info-icon diklik */
+#hunter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(4px);
+    display: none;
+    z-index: 9990;
+}
+
+/* Terminal box */
+#hunter-terminal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 40%;
+    max-width: 400px;
+    background: #000;
+    border: 2px solid #222;
+    padding: 25px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.05);
+    border-radius: 10px;
+    display: none;
+    z-index: 9999;
+    font-family: "Courier New", monospace;
+    color: #0f0;
+    animation: terminalPop 0.25s ease-out;
+}
+
+/* Isi terminal */
+#hunter-terminal pre {
+    margin: 0;
+    padding: 0;
+    white-space: pre-line;
+}
+
+/* Hanya header yang di-center */
+#hunter-terminal .terminal-header {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* Animasi pop-up */
+@keyframes terminalPop {
+    from { transform: translate(-50%, -50%) scale(0.7); opacity: 0; }
+    to   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
 
 /* Tablet */
 @media (max-width: 768px) {
